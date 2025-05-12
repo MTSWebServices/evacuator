@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  wait-code-analysis:
+  release:
     name: Release package
     runs-on: ubuntu-latest
     if: github.repository == 'MobileTeleSystems/evacuator'  # prevent running on forks
@@ -24,8 +24,10 @@ jobs:
     environment:
       name: test-pypi
       url: https://test.pypi.org/p/evacuator
+
     permissions:
       id-token: write # to auth in Test PyPI
+      contents: read
 
     steps:
       - name: Checkout code
