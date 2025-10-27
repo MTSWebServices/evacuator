@@ -75,7 +75,7 @@ jobs:
           ./pytest_runner.sh
 
       - name: Upload coverage results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: coverage-${{ matrix.python-version }}-os-${{ matrix.os }}
           path: reports/*
@@ -113,7 +113,7 @@ jobs:
         run: pip install -I -r requirements-test.txt
 
       - name: Download all coverage reports
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           path: reports/
           pattern: coverage-*
