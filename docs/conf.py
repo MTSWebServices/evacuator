@@ -26,7 +26,7 @@ sys.path.insert(0, os.fspath(PROJECT_ROOT_DIR))
 # -- Project information -----------------------------------------------------
 
 project = "Evacuator"
-copyright = "2022-2025 MTS PJSC"
+copyright = "2022-present MTS PJSC"
 author = "DataOps.ETL"
 
 # The version info for the project you're documenting, acts as replacement for
