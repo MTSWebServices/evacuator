@@ -49,7 +49,6 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          activate-environment: 'true'
           enable-cache: 'false'
 
       # no uv cache here because fresh install takes about 1 second
@@ -60,7 +59,7 @@ jobs:
       - name: Run tests
         run: |
           mkdir reports/ || echo "Directory exists"
-          ./pytest_runner.sh
+          uv run coverage run -m pytest --junitxml=$reports/junit/python${{ matrix.python-version }}.xml
 
       - name: Upload coverage results
         uses: actions/upload-artifact@v6
@@ -87,7 +86,6 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          activate-environment: 'true'
           enable-cache: 'false'
 
       # no uv cache here because fresh install takes about 1 second
@@ -103,7 +101,9 @@ jobs:
           merge-multiple: true
 
       - name: Generate coverate reports
-        run: ./combine_coverage.sh
+        run: |
+          uv run coverage combine
+          uv run coverage xml -o reports/coverage.xml -i
 
       - name: Coverage comment
         id: coverage
