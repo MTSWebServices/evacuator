@@ -58,10 +58,10 @@ jobs:
           echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
 
       - name: Run flake8
-        run: python3 -m flake8 --config setup.cfg .
+        run: python3 -m flake8 .
 
       - name: Run mypy
-        run: python3 -m mypy --config-file setup.cfg evacuator
+        run: python3 -m mypy evacuator
 
   codeql:
     name: CodeQL

@@ -52,7 +52,7 @@ jobs:
           pip install -I -r requirements-docs.txt
 
       - name: Build package
-        run: python setup.py sdist bdist_wheel
+        run: python -m build
 
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1

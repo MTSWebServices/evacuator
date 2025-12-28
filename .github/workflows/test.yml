@@ -63,15 +63,10 @@ jobs:
       - name: Install dependencies
         run: pip install -I -r requirements-test.txt
 
-      - name: Build package
-        run: |
-          python setup.py --version
-          python setup.py bdist_wheel sdist
-
       - name: Run tests
         run: |
           mkdir reports/ || echo "Directory exists"
-          pip install -e . --no-build-isolation
+          pip install -e .
           ./pytest_runner.sh
 
       - name: Upload coverage results

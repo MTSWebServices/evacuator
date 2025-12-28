@@ -119,7 +119,7 @@ repos:
         pass_filenames: false
       - id: mypy
         name: mypy
-        entry: python3 -m mypy --config-file setup.cfg evacuator
+        entry: python3 -m mypy evacuator
         language: system
         types: [python]
         pass_filenames: false
