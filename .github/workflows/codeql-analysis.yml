@@ -38,7 +38,6 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          activate-environment: 'true'
           enable-cache: 'false'
 
       # no uv cache here because fresh install takes about 1 second
@@ -48,7 +47,8 @@ jobs:
           uv sync --group dev
 
       - name: Run mypy
-        run: python3 -m mypy evacuator
+        run: |
+          uv run -m mypy evacuator
 
   codeql:
     name: CodeQL
