@@ -39,7 +39,22 @@ venv-install: ##@Env Install requirements to venv
 
 
 test: ##@Run tests
-	${PYTEST} $(ARGS)
+	uv run \
+		$(UV_ARGS) \
+		--group test \
+			pytest \
+			$(PYTEST_ARGS)
+
+
+test-ci: ##@Run tests in CI
+	uv run \
+		$(UV_ARGS) \
+		--group test \
+		coverage \
+			run \
+			-m \
+				pytest \
+				$(PYTEST_ARGS)
 
 
 .PHONY: docs

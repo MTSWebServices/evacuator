@@ -91,10 +91,8 @@ norecursedirs = [".git", "evacuator"]
 cache_dir = ".pytest_cache"
 log_cli_level = "INFO"
 
-[tool.coverage.paths]
-source = ["evacuator"]
-
 [tool.coverage.run]
+source_pkgs = ["evacuator"]
 branch = true
 parallel = true
 relative_files = true
