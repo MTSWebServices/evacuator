@@ -113,5 +113,5 @@ class DieContext:
 
     def _handle(self) -> NoReturn:
         logger.exception("Caught an exception")
-        logger.exception("Die with exit code %s", self.exit_code, exc_info=False)
+        logger.exception("Die with exit code %s", self.exit_code, exc_info=False)  # noqa: LOG007
         sys.exit(self.exit_code)

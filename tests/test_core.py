@@ -6,6 +6,8 @@ import pytest
 
 from evacuator import NeedEvacuation, evacuator
 
+logger = logging.getLogger(__name__)
+
 
 def test_core_decorator():
     @evacuator
@@ -34,7 +36,8 @@ def test_core_decorator_brackets():
 def test_core_decorator_args():
     @evacuator()
     def main(arg, *args, kwarg: int | None = None, **kwargs):
-        raise NeedEvacuation(f"arg={arg} kwarg={kwarg} args={args} kwargs={kwargs}")
+        msg = f"arg={arg} kwarg={kwarg} args={args} kwargs={kwargs}"
+        raise NeedEvacuation(msg)
 
     with pytest.raises(SystemExit, match="125"):
         main(1, 2, 3, key=4)
@@ -70,7 +73,7 @@ def test_core_decorator_exit_code():
 def test_core_decorator_nothing_raised():
     @evacuator(exit_code=32)
     def main():
-        logging.debug("abc")
+        logger.debug("abc")
 
     main()
 
@@ -85,35 +88,30 @@ def test_core_decorator_exception_not_match():
 
 
 def test_core_context():
-    with pytest.raises(SystemExit, match="125"):
-        with evacuator():
-            raise NeedEvacuation("abc")
+    with pytest.raises(SystemExit, match="125"), evacuator():
+        raise NeedEvacuation("abc")
 
 
 def test_core_context_exception():
-    with pytest.raises(SystemExit, match="125"):
-        with evacuator(exception=RuntimeError):
-            raise RuntimeError("abc")
+    with pytest.raises(SystemExit, match="125"), evacuator(exception=RuntimeError):
+        raise RuntimeError("abc")
 
 
 def test_core_context_multiple_exceptions():
-    with pytest.raises(SystemExit, match="125"):
-        with evacuator(exception=(RuntimeError, ValueError)):
-            raise ValueError("abc")
+    with pytest.raises(SystemExit, match="125"), evacuator(exception=(RuntimeError, ValueError)):
+        raise ValueError("abc")
 
 
 def test_core_context_exit_code():
-    with pytest.raises(SystemExit):
-        with evacuator(exit_code=32):
-            raise NeedEvacuation("abc")
+    with pytest.raises(SystemExit), evacuator(exit_code=32):
+        raise NeedEvacuation("abc")
 
 
 def test_core_context_nothing_raised():
     with evacuator():
-        logging.debug("abc")
+        logger.debug("abc")
 
 
 def test_core_context_exception_not_match():
-    with pytest.raises(RuntimeError, match="abc"):
-        with evacuator():
-            raise RuntimeError("abc")
+    with pytest.raises(RuntimeError, match="abc"), evacuator():
+        raise RuntimeError("abc")
