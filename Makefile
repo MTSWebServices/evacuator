@@ -38,6 +38,10 @@ venv-install: ##@Env Install requirements to venv
 		$(ARGS)
 
 
+test: ##@Run tests
+	${PYTEST} $(ARGS)
+
+
 .PHONY: docs
 
 docs: docs-build docs-open ##@Docs Generate & open docs

@@ -42,26 +42,43 @@ Open terminal and run these commands to clone a **forked** repo:
 
     cd evacuator
 
-Enable pre-commit hooks
-~~~~~~~~~~~~~~~~~~~~~~~
+Setup environment
+~~~~~~~~~~~~~~~~~
 
-Create virtualenv and install dependencies:
+Firstly, install `make <https://www.gnu.org/software/make/manual/make.html>`_. It is used for running complex commands in local environment.
+
+Secondly, create virtualenv and install dependencies:
 
 .. code:: bash
 
     make venv
 
-Install pre-commit hooks:
+If you already have venv, but need to install dependencies required for development:
 
 .. code:: bash
 
-    pre-commit install --install-hooks
+    make venv-install
 
-Test pre-commit hooks run:
+We are using `uv https://docs.astral.sh/uv/`_ for managing dependencies and building the package.
+It allows to keep development environment the same for all developers due to using lock file with fixed dependency versions.
+
+Enable pre-commit hooks
+~~~~~~~~~~~~~~~~~~~~~~~
+
+`pre-commit <https://pre-commit.com/>`_ hooks allows to validate & fix repository content before making new commit.
+It allows to run linters, formatters, fix file permissions and so on. If something is wrong, changes cannot be committed.
+
+Firstly, install `prek <https://prek.j178.dev/>`_:
 
 .. code:: bash
 
-    pre-commit run
+    prek install --install-hooks
+
+Ant then test hooks run:
+
+.. code:: bash
+
+    prek run
 
 How to
 ------
@@ -73,15 +90,11 @@ Run tests
 
     You can skip this if only source code behavior remains the same.
 
-Create virtualenv and install dependencies:
+Just run:
 
 .. code:: bash
 
-    make venv-install
-
-.. code:: bash
-
-    pytest
+    make test
 
 Build documentation
 ~~~~~~~~~~~~~~~~~~~
@@ -90,13 +103,7 @@ Build documentation
 
     You can skip this if only source code behavior remains the same.
 
-Create virtualenv and install dependencies:
-
-.. code:: bash
-
-    make venv-install
-
-Build documentation using Sphinx:
+Just run:
 
 .. code:: bash
 

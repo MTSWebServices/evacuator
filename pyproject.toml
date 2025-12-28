@@ -60,7 +60,7 @@ test = [
 ]
 dev = [
     "mypy~=1.19.1",
-    "pre-commit~=4.5.1",
+    "prek~=0.2.25",
 ]
 docs = [
     "furo~=2025.12.19",
