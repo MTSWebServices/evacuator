@@ -103,8 +103,8 @@ jobs:
 
       - name: Generate coverate reports
         run: |
-          uv run --group coverage combine
-          uv run --group coverage xml -o reports/coverage.xml -i
+          uv run --group test coverage combine
+          uv run --group test coverage xml -o reports/coverage.xml -i
 
       - name: Coverage comment
         id: coverage
