@@ -49,13 +49,7 @@ Create virtualenv and install dependencies:
 
 .. code:: bash
 
-    python -m venv venv
-    source venv/bin/activate
-    pip install -U wheel
-    pip install -U pip setuptools
-    pip install -U \
-        -r requirements.txt \
-        -r requirements-dev.txt
+    make venv
 
 Install pre-commit hooks:
 
@@ -83,7 +77,7 @@ Create virtualenv and install dependencies:
 
 .. code:: bash
 
-    pip install -U -r requirements-test.txt
+    make venv-install
 
 .. code:: bash
 
@@ -100,14 +94,13 @@ Create virtualenv and install dependencies:
 
 .. code:: bash
 
-    pip install -U -r requirements-docs.txt
+    make venv-install
 
 Build documentation using Sphinx:
 
 .. code:: bash
 
-    cd docs
-    make html
+    make docs
 
 Then open in browser ``docs/_build/index.html``.
 

@@ -13,3 +13,15 @@ updates:
       github-actions:
         patterns:
           - '*'
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: monthly
+    labels:
+      - type:dependency
+    versioning-strategy: increase-if-necessary
+    # https://til.simonwillison.net/github/dependabot-python-setup
+    groups:
+      python-packages:
+        patterns:
+          - '*'
