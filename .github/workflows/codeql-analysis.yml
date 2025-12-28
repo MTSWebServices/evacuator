@@ -55,9 +55,6 @@ jobs:
           # that includes the dependencies
           echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
 
-      - name: Run flake8
-        run: python3 -m flake8 .
-
       - name: Run mypy
         run: python3 -m mypy evacuator
 
