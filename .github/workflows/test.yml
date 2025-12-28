@@ -59,7 +59,7 @@ jobs:
       - name: Run tests
         run: |
           mkdir reports/ || echo "Directory exists"
-          uv run coverage run -m pytest --junitxml=$reports/junit/python${{ matrix.python-version }}.xml
+          uv run coverage run -m pytest --junitxml=reports/junit/python${{ matrix.python-version }}.xml
 
       - name: Upload coverage results
         uses: actions/upload-artifact@v6
