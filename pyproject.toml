@@ -37,11 +37,11 @@ file = "README.rst"
 content-type = "text/x-rst"
 
 [project.urls]
-Homepage = "https://github.com/MobileTeleSystems/evacuator"
+Homepage = "https://github.com/MTSWebServices/evacuator"
 Documentation = "https://evacuator.readthedocs.io"
-Source = "https://github.com/MobileTeleSystems/evacuator"
-"CI/CD" = "https://github.com/MobileTeleSystems/evacuator/actions"
-Tracker = "https://github.com/MobileTeleSystems/evacuator/issues"
+Source = "https://github.com/MTSWebServices/evacuator"
+"CI/CD" = "https://github.com/MTSWebServices/evacuator/actions"
+Tracker = "https://github.com/MTSWebServices/evacuator/issues"
 
 [project.entry-points."tricoder_package_spy.register"]
 evacuator = "evacuator"

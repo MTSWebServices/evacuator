@@ -8,13 +8,13 @@ Evacuator
 
 .. |Repo Status| image:: https://www.repostatus.org/badges/latest/active.svg
     :alt: Repo status - Active
-    :target: https://github.com/MobileTeleSystems/evacuator
+    :target: https://github.com/MTSWebServices/evacuator
 .. |PyPI Latest Release| image:: https://img.shields.io/pypi/v/evacuator
     :alt: PyPI - Latest Release
     :target: https://pypi.org/project/evacuator/
 .. |PyPI License| image:: https://img.shields.io/pypi/l/evacuator.svg
     :alt: PyPI - License
-    :target: https://github.com/MobileTeleSystems/evacuator/blob/develop/LICENSE.txt
+    :target: https://github.com/MTSWebServices/evacuator/blob/develop/LICENSE.txt
 .. |PyPI Python Version| image:: https://img.shields.io/pypi/pyversions/evacuator.svg
     :alt: PyPI - Python Version
     :target: https://pypi.org/project/evacuator/
@@ -24,15 +24,15 @@ Evacuator
 .. |Documentation| image:: https://readthedocs.org/projects/evacuator/badge/?version=stable
     :alt: Documentation - ReadTheDocs
     :target: https://evacuator.readthedocs.io/
-.. |CI Status| image:: https://github.com/MobileTeleSystems/evacuator/workflows/Tests/badge.svg
+.. |CI Status| image:: https://github.com/MTSWebServices/evacuator/workflows/Tests/badge.svg
     :alt: Github Actions - latest CI build status
-    :target: https://github.com/MobileTeleSystems/evacuator/actions
+    :target: https://github.com/MTSWebServices/evacuator/actions
 .. |Test Coverage| image:: https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/
     MTSOnGithub/03e73a82ecc4709934540ce8201cc3b4/raw/evacuator_badge.json
-    :target: https://github.com/MobileTeleSystems/evacuator/actions
-.. |pre-commit.ci Status| image:: https://results.pre-commit.ci/badge/github/MobileTeleSystems/evacuator/develop.svg
+    :target: https://github.com/MTSWebServices/evacuator/actions
+.. |pre-commit.ci Status| image:: https://results.pre-commit.ci/badge/github/MTSWebServices/evacuator/develop.svg
     :alt: pre-commit.ci - status
-    :target: https://results.pre-commit.ci/latest/github/MobileTeleSystems/evacuator/develop
+    :target: https://results.pre-commit.ci/latest/github/MTSWebServices/evacuator/develop
 
 What is Evacuator?
 ------------------
