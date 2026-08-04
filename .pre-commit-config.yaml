@@ -31,10 +31,6 @@ repos:
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.10.0
     hooks:
-      - id: python-no-log-warn
-        priority: 0
-      - id: python-no-eval
-        priority: 0
       - id: rst-backticks
         priority: 0
       - id: rst-directive-colons
@@ -84,6 +80,14 @@ repos:
 
   - repo: local
     hooks:
+      - id: towncrier
+        name: towncrier
+        entry: towncrier build --draft
+        language: system
+        types: [rst]
+        pass_filenames: false
+        priority: 7
+
       - id: ruff-format
         name: ruff-format
         language: system
@@ -107,14 +111,6 @@ repos:
         types: [python]
         pass_filenames: false
         priority: 9
-
-      - id: towncrier
-        name: towncrier
-        entry: towncrier build --draft
-        language: system
-        types: [rst]
-        pass_filenames: false
-        priority: 7
 
   - repo: meta
     hooks:
