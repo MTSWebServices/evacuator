@@ -46,8 +46,10 @@ jobs:
         run: |
           uv sync --group dev
 
-      - name: Run mypy
+      - name: Run linters
         run: |
+          uv run ruff format --check
+          uv run ruff check
           uv run -m mypy evacuator
 
   codeql:
